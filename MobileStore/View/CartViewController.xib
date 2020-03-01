@@ -1,13 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="MobileStore" customModuleProvider="target">
             <connections>
+                <outlet property="cartProductTable" destination="EhM-hc-qbk" id="BWl-oZ-VJr"/>
+                <outlet property="totalPriceLabel" destination="Tnq-p1-aJa" id="jKo-8r-5HW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +18,61 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B61-Ua-dFa">
+                    <rect key="frame" x="25" y="20" width="48" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rc-zs-8d6">
+                    <rect key="frame" x="308" y="20" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EhM-hc-qbk">
+                    <rect key="frame" x="5" y="46" width="375" height="397"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKe-Rq-vmf">
+                    <rect key="frame" x="25" y="596" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnq-p1-aJa">
+                    <rect key="frame" x="86" y="596" width="11.5" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nA-B9-gYX">
+                    <rect key="frame" x="207" y="20" width="66" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0rc-zs-8d6" firstAttribute="leading" secondItem="3nA-B9-gYX" secondAttribute="trailing" constant="35" id="0Uo-fk-HIw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Tnq-p1-aJa" secondAttribute="bottom" constant="50" id="19U-Uz-YEo"/>
+                <constraint firstItem="B61-Ua-dFa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="3bh-Nf-nLx"/>
+                <constraint firstItem="0rc-zs-8d6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="DbO-qT-CeA"/>
+                <constraint firstItem="3nA-B9-gYX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="NMi-Mn-Hnc"/>
+                <constraint firstItem="Tnq-p1-aJa" firstAttribute="leading" secondItem="FKe-Rq-vmf" secondAttribute="trailing" constant="19" id="Nch-cO-hIM"/>
+                <constraint firstItem="EhM-hc-qbk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="Ut3-wP-0El"/>
+                <constraint firstItem="B61-Ua-dFa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="VJy-ZG-niX"/>
+                <constraint firstItem="FKe-Rq-vmf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="cog-zF-4Ky"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FKe-Rq-vmf" secondAttribute="bottom" constant="50" id="eZ5-gX-5aM"/>
+                <constraint firstItem="FKe-Rq-vmf" firstAttribute="top" secondItem="EhM-hc-qbk" secondAttribute="bottom" constant="153" id="g5k-e5-K1J"/>
+                <constraint firstItem="EhM-hc-qbk" firstAttribute="top" secondItem="B61-Ua-dFa" secondAttribute="bottom" constant="5" id="mW2-yQ-37b"/>
+                <constraint firstAttribute="trailing" secondItem="EhM-hc-qbk" secondAttribute="trailing" constant="-5" id="oql-NM-fDJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0rc-zs-8d6" secondAttribute="trailing" constant="25" id="q5j-VX-cmu"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40000000000001" y="150.67466266866569"/>
         </view>
     </objects>
 </document>

@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductViewController" customModule="MobileStore" customModuleProvider="target">
             <connections>
+                <outlet property="productTableView" destination="YxA-6q-THu" id="GvY-IU-TtG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

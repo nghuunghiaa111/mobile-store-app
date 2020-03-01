@@ -9,22 +9,38 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
+    
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var productPriceLabel: UILabel!
+    @IBOutlet weak var productDetailTextView: UITextView!
+    
+    var product = Product(productName: "", productPrice: "", productImage: Images.asus_zen_go, productDetail: "", id: "", count: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), style: .done, target: self, action: #selector(addButtonTapped))
+        
+        setupView()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setupView() {
+        productImageView.image = product.productImage
+        productNameLabel.text = product.productName
+        productPriceLabel.text = product.productPrice
+        productDetailTextView.text = product.productDetail
     }
-    */
-
+    
+    @objc func addButtonTapped() {
+        let kq = DataProvider.productBus.addProductCart(product: self.product)
+        if kq {
+            let alert = UIAlertController(title: "Thông báo", message: "Bạn vừa thêm sản phẩm vào giỏ hàng", preferredStyle: .alert)
+            let alerAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(alerAction)
+            present(alert, animated: true)
+        }
+    }
 }
